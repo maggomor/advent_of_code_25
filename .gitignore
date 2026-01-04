@@ -1,0 +1,13 @@
+no_push/*
+*/no_push/*
+*.log
+*.tmp
+__pycache__/
+*.pyc
+.vscode/
+.idea/
+.DS_Store
+env/
+venv/
+*.egg-info/
+dist/               

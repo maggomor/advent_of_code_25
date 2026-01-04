@@ -1,6 +1,9 @@
 from pydantic import BaseModel
 import numpy as np
 import itertools
+from pathlib import Path
+
+file_path = Path(__file__).parent / "../no_push/inputs/day4.txt"
 
 class DayFourClass(BaseModel):
     puzzle_input: str
@@ -87,6 +90,8 @@ class DayFourClass(BaseModel):
 
 if __name__ == "__main__":
     puzzle_input = "..@@.@@@@.\n@@@.@.@.@@\n@@@@@.@.@@\n@.@@@@..@.\n@@.@@@@.@@\n.@@@@@@@.@\n.@.@.@.@@@\n@.@@@.@@@@\n.@@@@@@@@.\n@.@.@@@.@."
+    with open(file_path, "r") as f:
+        puzzle_input = f.read()
     checker = DayFourClass(puzzle_input = puzzle_input)
     outcome = checker.process_puzzle()
     print(f"Number of papers accessible by forklift is: {outcome}")

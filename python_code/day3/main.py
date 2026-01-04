@@ -1,6 +1,8 @@
 from pydantic import BaseModel
 import numpy as np
+from pathlib import Path
 
+file_path = Path(__file__).parent / "../no_push/inputs/day3.txt"
 def argmax(iterable):
     return max(enumerate(iterable), key=lambda x: x[1])[0]
 
@@ -28,7 +30,9 @@ class DayThreeClass(BaseModel):
         return value
 
 if __name__ == "__main__":
-    joltage_ratings = "987654321111111\n811111111111119\n234234234234278\n818181911112111"
+    #joltage_ratings = "987654321111111\n811111111111119\n234234234234278\n818181911112111"
+    with open(file_path, "r") as f:
+        joltage_ratings = f.read()
     checker = DayThreeClass(joltage_ratings = joltage_ratings)
     outcome = checker.process_joltage_ratings()
     print(f"Sum of Joltages is: {outcome}")

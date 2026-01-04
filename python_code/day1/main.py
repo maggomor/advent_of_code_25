@@ -1,6 +1,10 @@
 from pydantic import BaseModel
 import numpy as np
 
+from pathlib import Path
+
+file_path = Path(__file__).parent / "../no_push/inputs/day1.txt"
+
 class DayOneClass(BaseModel):
     location: int
     
@@ -45,7 +49,9 @@ class DayOneClass(BaseModel):
         return password
 
 if __name__ == "__main__":
-    list_one = ["L50", "L12", "R48", "R17", "R97", "L12", "L15"]
+    with open(file_path, "r") as f:
+        puzzle_input = f.read()
+    #list_one = ["L50", "L12", "R48", "R17", "R97", "L12", "L15"]
     checker = DayOneClass(location = 50)
-    outcome = checker.safecracking(list_one)
+    outcome = checker.safecracking(puzzle_input.split("\n"))
     print(f"Password is: {outcome}")

@@ -2,6 +2,10 @@ from pydantic import BaseModel
 import numpy as np
 from typing import Tuple
 
+from pathlib import Path
+
+file_path = Path(__file__).parent / "../no_push/inputs/day5.txt"
+
 class DayFiveClass(BaseModel):
     puzzle_input: str
     
@@ -26,6 +30,8 @@ class DayFiveClass(BaseModel):
     
 if __name__ == "__main__":
     puzzle_input = "3-5\n10-14\n16-20\n12-18\n\n1\n5\n8\n11\n17\n32"
+    with open(file_path, "r") as f:
+        puzzle_input = f.read()
     checker = DayFiveClass(puzzle_input = puzzle_input)
     outcome = checker.check_all_ingredients()
     print(f"Number of acceptable ingredients is: {outcome}")
