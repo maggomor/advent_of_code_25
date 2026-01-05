@@ -22,14 +22,16 @@ class DayOneClass(BaseModel):
         flag = self.location == 0
         while result < 0:
             result += 100
-            if ((not flag) and (result != 0)):
+            if (result != 0):
                 counter += 1
                 print(f"Adjusted to {result}, counter is {counter}")
         while result >= 100:
             result -= 100
-            if ((result != 100) and (not flag) and (result != 0)):
+            if ((result != 0)):
                 counter += 1
             print(f"Adjusted to {result}, counter is {counter}")
+        if (flag and multiplier == -1):
+            counter -= 1
         self.location = result
         return result, counter
     
