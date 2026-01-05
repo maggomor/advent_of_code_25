@@ -30,7 +30,6 @@ class DayThreeClass(BaseModel):
         return value
 
 if __name__ == "__main__":
-    #joltage_ratings = "987654321111111\n811111111111119\n234234234234278\n818181911112111"
     with open(file_path, "r") as f:
         joltage_ratings = f.read()
     checker = DayThreeClass(joltage_ratings = joltage_ratings)
